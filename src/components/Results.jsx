@@ -4,10 +4,11 @@ import { formatter } from '../util/investment.js'
 export default function Results({ input }) {
 
     const results = calculateInvestmentResults(input)
-    const initialInvestment = 
+    // calulating missing table data
+    const initialInvestment =
         results[0].valueEndOfYear -
         results[0].interest -
-        results[0].annualInvestment // calulating missing table data
+        results[0].annualInvestment
 
     return (
         <table id="result">
@@ -22,12 +23,12 @@ export default function Results({ input }) {
             </thead>
             <tbody>
                 {results.map((annualData) => {
-                    // calculating missing data
+                    // calculating missing table data
                     const totalInterest =
                         annualData.valueEndOfYear -
                         annualData.annualInvestment * annualData.year -
                         initialInvestment;
-
+                    // calculating missing table data
                     const totalAmountInvested = annualData.valueEndOfYear - totalInterest;
 
                     return (
